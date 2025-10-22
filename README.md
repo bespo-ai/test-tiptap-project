@@ -67,6 +67,38 @@ The build output will be in the `dist/` directory.
 npm run preview
 ```
 
+### Deploy to GitHub Pages
+
+This project includes a GitHub Actions workflow that automatically deploys to GitHub Pages on every push to `main`.
+
+#### Setup Steps:
+
+1. **Push this repository to GitHub**
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git remote add origin https://github.com/YOUR_USERNAME/test-tiptap-project.git
+   git push -u origin main
+   ```
+
+2. **Enable GitHub Pages**
+   - Go to your repository on GitHub
+   - Navigate to **Settings** → **Pages**
+   - Under **Source**, select **GitHub Actions**
+
+3. **Automatic Deployment**
+   - The workflow will automatically run on push to `main`
+   - Check the **Actions** tab to see the deployment status
+   - Once complete, your site will be available at:
+     `https://YOUR_USERNAME.github.io/test-tiptap-project/`
+
+#### Manual Deployment
+
+You can also trigger deployment manually:
+- Go to **Actions** tab
+- Select **Deploy to GitHub Pages** workflow
+- Click **Run workflow**
+
 ## 📦 Architecture Overview
 
 ### Core Technologies

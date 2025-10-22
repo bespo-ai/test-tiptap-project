@@ -1,5 +1,5 @@
 import { Node, mergeAttributes } from '@tiptap/core'
-import { ReactNodeViewRenderer, NodeViewWrapper, NodeViewContent } from '@tiptap/react'
+import { ReactNodeViewRenderer, NodeViewWrapper } from '@tiptap/react'
 import { useState } from 'react'
 import { BlockWithMenu } from './BlockWithMenu'
 import './AIBlockReact.css'
@@ -7,14 +7,12 @@ import './AIBlockReact.css'
 const AIBlockComponent = (props: any) => {
   const [prompt, setPrompt] = useState('')
   const [isRunning, setIsRunning] = useState(false)
-  const [hasRun, setHasRun] = useState(false)
   
   // Get or create a unique ID for this AI block
   const aiBlockId = props.node.attrs.id || `ai-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
   
   // Update the node's ID if it doesn't have one
   if (!props.node.attrs.id) {
-    const pos = props.getPos()
     props.editor.chain().updateAttributes('aiBlockReact', { id: aiBlockId }).run()
   }
 
@@ -154,16 +152,6 @@ export const AIBlockReact = Node.create({
 
   addNodeView() {
     return ReactNodeViewRenderer(AIBlockComponent)
-  },
-
-  addCommands() {
-    return {
-      setAIBlockReact: () => ({ commands }) => {
-        return commands.insertContent({
-          type: this.name,
-        })
-      },
-    }
   },
 })
 

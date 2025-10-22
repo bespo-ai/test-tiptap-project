@@ -20,9 +20,11 @@ const CodeBlockComponent = (props: any) => {
               <span className="ai-badge-text">AI</span>
             </div>
           )}
-          <pre>
-            <NodeViewContent as="code" />
-          </pre>
+        <pre>
+          <code>
+            <NodeViewContent />
+          </code>
+        </pre>
         </div>
       </BlockWithMenu>
     </NodeViewWrapper>
@@ -108,17 +110,6 @@ export const CodeBlockCustom = Node.create({
 
   addNodeView() {
     return ReactNodeViewRenderer(CodeBlockComponent)
-  },
-
-  addCommands() {
-    return {
-      setCodeBlockCustom: (attributes) => ({ commands }) => {
-        return commands.insertContent({
-          type: this.name,
-          attrs: attributes,
-        })
-      },
-    }
   },
 })
 

@@ -85,20 +85,5 @@ export const TextBlock = Node.create({
   addNodeView() {
     return ReactNodeViewRenderer(TextBlockComponent)
   },
-
-  addCommands() {
-    return {
-      setTextBlock: () => ({ commands }) => {
-        return commands.insertContent({
-          type: this.name,
-          content: [
-            {
-              type: 'paragraph',
-            },
-          ],
-        })
-      },
-    }
-  },
 })
 

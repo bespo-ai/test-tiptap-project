@@ -69,35 +69,47 @@ npm run preview
 
 ### Deploy to GitHub Pages
 
-This project includes a GitHub Actions workflow that automatically deploys to GitHub Pages on every push to `main`.
+This project includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that automatically builds and deploys to GitHub Pages.
 
 #### Setup Steps:
 
-1. **Push this repository to GitHub**
+1. **Push this repository to GitHub** (if you haven't already)
    ```bash
    git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/YOUR_USERNAME/test-tiptap-project.git
-   git push -u origin main
+   git commit -m "Add GitHub Pages deployment"
+   git push origin main
    ```
 
 2. **Enable GitHub Pages**
    - Go to your repository on GitHub
    - Navigate to **Settings** → **Pages**
    - Under **Source**, select **GitHub Actions**
+   - Save
 
-3. **Automatic Deployment**
-   - The workflow will automatically run on push to `main`
-   - Check the **Actions** tab to see the deployment status
-   - Once complete, your site will be available at:
-     `https://YOUR_USERNAME.github.io/test-tiptap-project/`
+3. **Wait for Deployment**
+   - The workflow automatically triggers on push
+   - Check the **Actions** tab to monitor progress
+   - Build takes ~1-2 minutes
+   - Once complete (green checkmark), your site is live at:
+     ```
+     https://YOUR_USERNAME.github.io/test-tiptap-project/
+     ```
 
-#### Manual Deployment
+#### Workflow Features:
 
-You can also trigger deployment manually:
-- Go to **Actions** tab
-- Select **Deploy to GitHub Pages** workflow
-- Click **Run workflow**
+- ✅ **Auto-deploy** on every push to `main`
+- ✅ **Manual trigger** via Actions tab → "Run workflow"
+- ✅ **Build caching** for faster subsequent builds
+- ✅ **Concurrent deployment protection**
+- ✅ **Proper base path** configuration for GitHub Pages
+
+#### Troubleshooting Deployment:
+
+If deployment fails:
+1. Check **Actions** tab for error logs
+2. Ensure GitHub Pages is enabled in Settings
+3. Verify you have write permissions for GitHub Pages
+4. Make sure the build succeeds locally: `npm run build`
 
 ## 📦 Architecture Overview
 

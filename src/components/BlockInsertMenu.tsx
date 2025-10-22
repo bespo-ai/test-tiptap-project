@@ -44,20 +44,18 @@ const BlockInsertMenu = ({ editor, position, onClose, buttonRef }: BlockInsertMe
   }, [onClose, buttonRef])
 
   const insertBlock = (type: 'text' | 'code' | 'ai') => {
-    editor.chain().focus()
-    
     if (type === 'text') {
-      editor.chain().insertContentAt(position, {
+      editor.chain().focus().insertContentAt(position, {
         type: 'textBlock',
         content: [{ type: 'paragraph' }],
       }).run()
     } else if (type === 'code') {
-      editor.chain().insertContentAt(position, {
+      editor.chain().focus().insertContentAt(position, {
         type: 'codeBlockCustom',
         attrs: { language: 'javascript' },
       }).run()
     } else if (type === 'ai') {
-      editor.chain().insertContentAt(position, {
+      editor.chain().focus().insertContentAt(position, {
         type: 'aiBlockReact',
       }).run()
     }

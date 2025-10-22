@@ -1,0 +1,51 @@
+.add-block-button-wrapper {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.add-block-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border: 2px dashed #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #666;
+}
+
+.add-block-button:hover {
+  border-color: #667eea;
+  background: #f5f7ff;
+  color: #667eea;
+  border-style: solid;
+}
+
+.add-block-button .plus-icon {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.add-block-text {
+  font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+  .add-block-button {
+    background: #2a2a2a;
+    border-color: #555;
+    color: #aaa;
+  }
+
+  .add-block-button:hover {
+    background: #3a3a3a;
+    border-color: #667eea;
+    color: #667eea;
+  }
+}
+
